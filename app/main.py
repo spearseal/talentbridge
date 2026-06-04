@@ -7,7 +7,11 @@ from app.db.database import engine, SessionLocal
 import uvicorn
 
 # Create tables
-models.Base.metadata.create_all(bind=engine)
+try:
+    models.Base.metadata.create_all(bind=engine)
+    print("Database tables created successfully")
+except Exception as e:
+    print(f"Warning: Could not create database tables: {e}")
 
 app = FastAPI(
     title=config.settings.PROJECT_NAME,
