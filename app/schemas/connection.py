@@ -1,6 +1,6 @@
 from typing import Optional
 from datetime import datetime
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 # ── Request: create a connection ───────────────────────────────────────────────
@@ -15,5 +15,4 @@ class Connection(BaseModel):
     connected_user_id: int
     created_at: Optional[datetime] = None
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)

@@ -1,5 +1,5 @@
 from typing import Optional
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, ConfigDict
 
 
 # ── Shared properties ──────────────────────────────────────────────────────────
@@ -30,13 +30,12 @@ class UserInDBBase(UserBase):
     id: Optional[int] = None
     is_partner: bool = False
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 # ── Public response schema ─────────────────────────────────────────────────────
 class User(UserInDBBase):
-    pass
+    model_config = ConfigDict(from_attributes=True)
 
 
 # ── Internal schema that includes the hashed password ─────────────────────────
