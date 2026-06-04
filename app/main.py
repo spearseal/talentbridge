@@ -29,9 +29,9 @@ if config.settings.BACKEND_CORS_ORIGINS:
     )
 
 # Include routers
-app.include_router(auth.router, prefix=f"{config.settings.API_V1_STR}/auth", tags=["auth"])
-app.include_router(users.router, prefix=f"{config.settings.API_V1_STR}/users", tags=["users"])
-app.include_router(connections.router, prefix=f"{config.settings.API_V1_STR}/connections", tags=["connections"])
+# app.include_router(auth.router, prefix=f"{config.settings.API_V1_STR}/auth", tags=["auth"])
+# app.include_router(users.router, prefix=f"{config.settings.API_V1_STR}/users", tags=["users"])
+# app.include_router(connections.router, prefix=f"{config.settings.API_V1_STR}/connections", tags=["connections"])
 
 @app.get("/")
 def root():
